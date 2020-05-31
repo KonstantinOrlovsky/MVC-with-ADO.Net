@@ -1,0 +1,46 @@
+﻿@model IEnumerable<BusinessLogicLayer.CompanyDTO>
+@using BusinessLogicLayer
+
+@{
+    ViewBag.Title = Constants.TitleListCompany;
+}
+
+<div style="margin-bottom:10px;">
+    @Html.ActionLink(Constants.CreateCompany, "Create", "", new { @class = "btn btn-sm btn-primary rounded-0" })
+</div>
+
+<h4 class="text-center text-uppercase">@Constants.TitleListCompany</h4>
+<table  id="example" class="table table-bordered">
+    <tr>
+        <th>@Constants.Id</th>
+        <th>@Constants.NameCompany</th>
+        <th>@Constants.Count</th>
+        <th>@Constants.Prefix</th>
+        <th>@Constants.Action</th>
+    </tr>
+
+   @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Count)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Prefix)
+            </td>
+            <td>
+                @Html.ActionLink(Constants.Edit, "Edit", new { id = item.Id }) |
+                @Html.ActionLink(Constants.Delete, "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+</table>
+
+

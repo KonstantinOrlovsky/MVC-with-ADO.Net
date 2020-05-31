@@ -1,0 +1,40 @@
+﻿@model BusinessLogicLayer.CompanyDTO
+@using BusinessLogicLayer
+
+@{
+    ViewBag.Title = Constants.TitleDeleteCompany;
+}
+
+<h4>@Constants.DeleteMessage</h4>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.LabelFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.LabelFor(model => model.Prefix)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Prefix)
+        </dd>
+    </dl>
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value=@Constants.Delete class="btn btn-default" /> |
+            @Html.ActionLink(Constants.Cancel, "List")
+        </div>
+    }
+</div>
+

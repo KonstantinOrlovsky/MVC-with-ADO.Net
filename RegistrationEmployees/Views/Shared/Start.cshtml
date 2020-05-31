@@ -1,0 +1,16 @@
+﻿@using BusinessLogicLayer
+@{
+    ViewBag.Title = Constants.MainMenu;
+}
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div>
+            @Html.ActionLink(Constants.TitleListEmployee, "List", "Employee", new { area = "" }, new { @class = "navbar-brand" })
+        </div>
+        <div>
+            @Html.ActionLink(Constants.TitleListCompany, "List", "Company", new { area = "" }, new { @class = "navbar-brand" })
+        </div>
+    </div>
+</div>
+ 

@@ -1,0 +1,74 @@
+﻿@model DataAccessLayer.Employee
+@using DataAccessLayer.Data
+
+@{
+    ViewBag.Title = Constants.TitleDeleteEmployee;
+}
+<style type="text/css">
+    .no-color {
+    }
+
+    .form-actions {
+    }
+</style>
+
+<h4>@Constants.DeleteMessage</h4>
+
+
+<div>
+
+    <hr />
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.Label(@Constants.Surname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Surname)
+        </dd>
+
+        <dt>
+            @Html.Label(@Constants.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.Label(@Constants.Patronymic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Patronymic)
+        </dd>
+        <dt>
+            @Html.Label(@Constants.Post)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Post)
+        </dd>
+        <dt>
+            @Html.Label(@Constants.Company)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Company.Name)
+        </dd>
+
+    </dl>
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value=@Constants.Delete class="btn btn-default" /> |
+            @Html.ActionLink(Constants.Cancel, Constants.ListView)
+        </div>
+    }
+</div>
+

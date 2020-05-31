@@ -1,0 +1,44 @@
+﻿@model IEnumerable<BusinessLogicLayer.EmployeeDTO>
+@{
+    ViewBag.Title = "List";
+}
+@using BusinessLogicLayer;
+
+<div style="margin-bottom:10px;">
+    @Html.ActionLink(Constants.CreateEmployee, "Create", "Employee", "", new { @class = "btn btn-sm btn-primary rounded-0" })
+</div>
+
+<h4 class="text-center text-uppercase">@Constants.TitleListEmployee</h4>
+<table id="example" class="table table-bordered">
+    <thead>
+        <tr>
+            <th>@Constants.Id</th>
+            <th>@Constants.Surname</th>
+            <th>@Constants.Name</th>
+            <th>@Constants.Patronymic</th>
+            <th>@Constants.Date</th>
+            <th>@Constants.Post</th>
+            <th>@Constants.Company</th>
+            <th>@Constants.Action</th>
+        </tr>
+    </thead>
+    <tbody>
+       @foreach (var item in Model)
+        {
+        <tr>
+            <td>@item.IdEmployee</td>
+            <td>@item.Surname</td>
+            <td>@item.Name</td>
+            <td>@item.Patronymic</td>
+            <td>@item.Date</td>
+            <td>@item.Post</td>
+            <td>@item.Company.Name</td>
+            <td>
+                @Html.ActionLink(Constants.Edit, "Edit", new { id = item.IdEmployee }) |
+                @Html.ActionLink(Constants.Delete, "Delete", new { id = item.IdEmployee })
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
